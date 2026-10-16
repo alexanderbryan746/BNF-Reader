@@ -8,6 +8,7 @@ def limpiar_comentarios(texto):
     if not texto:
         return texto
 
+
     # 1. Limpiar comentarios multilínea: /* ... */
     # Usamos una función lambda para reemplazar todo el bloque por la misma 
     # cantidad de saltos de línea (\n) que contenía originalmente.
