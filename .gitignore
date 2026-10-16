@@ -1,0 +1,21 @@
+# Entornos virtuales
+venv/
+
+# Archivos compilados de Python (Caché)
+__pycache__/
+*.py[cod]
+*~
+
+# Archivos generados y ejecutables (Auto-py-to-exe / PyInstaller)
+output/
+build/
+dist/
+*.spec
+*.exe
+
+# Archivos de configuración local / Estado del usuario
+config.json
+
+# Archivos de editores y sistema operativo
+.vscode/
+.DS_Store
