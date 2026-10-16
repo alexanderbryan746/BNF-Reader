@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgb(27, 31, 26);
+    display: grid;
+    /* Arriba y Abajo se adaptan, el Centro (AST) ocupa todo el ancho y alto disponible */
+    grid-template-rows: auto 1fr auto; 
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    justify-items: stretch;
+    margin: 0;
+    padding: 10px;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.section {
+    background: transparent;
+    min-height: 0; 
+}    
+
+/* --- MENÚ SUPERIOR Y BOTONES (CON CONTENEDOR Y SCROLLBAR) --- */
+#topMenu {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.4);
+    min-width: 0;
+    width: 100%;
+}
+
+.menu-divider {
+    width: 1px;
+    height: 28px;
+    background-color: #116117;
+    flex-shrink: 0;
+}
+
+#fileLabel {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+}
+
+#fileLabel:hover {
+    transform: scale(1.05);
+}
+
+.btn-archivo {
+    height: 100%;       
+    width: auto;        
+    object-fit: contain;
+}
+
+#ruleSelector {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+    padding: 2px 0 6px 0;
+    align-items: center;
+}
+
+#ruleSelector::-webkit-scrollbar {
+    height: 6px;
+}
+
+#ruleSelector::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+#ruleSelector::-webkit-scrollbar-thumb {
+    background: #116117;
+    border-radius: 3px;
+}
+
+#ruleSelector::-webkit-scrollbar-thumb:hover {
+    background: #00e676;
+}
+
+.rule-btn {
+    background-color: #2c2c2c;
+    color: #aaa;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-family: monospace;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.rule-btn:hover { background-color: #3c3c3c; color: white; }
+.rule-btn.active {
+    background-color: rgba(0, 123, 255, 0.2);
+    border-color: #007bff;
+    color: white;
+}
+
+/* --- CENTRO (AST A ANCHO COMPLETO CON SCROLLBAR PROPIA) --- */
+#exampleBox {
+    grid-row: 2;
+    width: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* --- CAJA INFERIOR (TEXTAREA CON SCROLLBARS INDEPENDIENTES) --- */
+#bottomBox {
+    grid-row: 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+#textContainer {
+    width: 100%;
+    height: 90px;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    resize: none;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    white-space: pre;
+    line-height: 1.4;
+    scrollbar-color: #116117 rgba(0,0,0,0.3);
+    scrollbar-width: thin;
+}
+
+#textContainer::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    display: block;
+}
+
+#textContainer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0;
+}
+
+#textContainer::-webkit-scrollbar-thumb {
+    background: #116117;
+    border-radius: 0;
+    border: 2px solid rgba(0,0,0,0.5);
+}
+
+#textContainer::-webkit-scrollbar-thumb:hover {
+    background: #00e676;
+}
+
+#textContainer::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#errorBox {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#errorBox::-webkit-scrollbar {
+    width: 6px;
+}
+
+#errorBox::-webkit-scrollbar-thumb {
+    background: #ce0000;
+    border-radius: 3px;
+}
+
+/* --- AST (SCROLLBAR SIEMPRE VISIBLE) --- */
+#astContainer {
+    overflow-x: scroll !important;
+    overflow-y: scroll !important;
+    scrollbar-color: #116117 rgba(0,0,0,0.3);
+    scrollbar-width: thin;
+}
+
+#astContainer::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+    display: block;
+}
+
+#astContainer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0;
+}
+
+#astContainer::-webkit-scrollbar-thumb {
+    background: #116117;
+    border-radius: 0;
+    border: 2px solid rgba(0,0,0,0.5);
+}
+
+#astContainer::-webkit-scrollbar-thumb:hover {
+    background: #00e676;
+}
+
+#astContainer::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0.5);
+}

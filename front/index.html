@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador BNF</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/properties.css">
+</head>
+<body>
+
+    <div id="topMenu" class="section pBorder">
+        <div id="fileLabel" onclick="seleccionarArchivoBNF()" title="Abrir archivo BNF">
+            <img class="btn-archivo" src="resources/folder-icon.png" alt="Abrir archivo">
+        </div>
+        <div class="menu-divider"></div>
+        <!-- Aquí aparecerán los botones generados por JS -->
+        <div id="ruleSelector"></div>
+    </div>
+    
+    <div id="exampleBox" class="section pBorder" style="padding: 10px; display: flex; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #116117; padding-bottom: 5px; margin-bottom: 6px;">
+            <h4 style="color: white; margin: 0;">AST Generado</h4>
+            <span style="font-size: 11px; color: #888;">(Pasa el mouse sobre un valor para ver su regla)</span>
+        </div>
+        <div id="astInspector" style="font-size: 12px; font-family: monospace; color: #aaa; min-height: 22px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; overflow-x: auto; white-space: nowrap;">
+            <span style="color: #666; font-style: italic;">Sin selección</span>
+        </div>
+        <div id="astContainer" style="flex: 1; padding: 10px 4px; display: flex; align-items: flex-start;">
+            <p style="color: gray; font-style: italic;">Esperando texto válido...</p>
+        </div>
+    </div>
+    
+    <div id="bottomBox" class="section">
+        <textarea id="textContainer" placeholder="Ingresa texto a verificar" class="pBorder" wrap="off" spellcheck="false"></textarea>
+        <pre id="errorBox" style="color: #ce0000; font-family: monospace; white-space: pre-wrap; display: none; margin: 0; padding: 10px; background: rgba(0,0,0,0.5); border-radius: 5px;"></pre>
+    </div>
+
+    <script src="scripts/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+.defaultStyle, .pBorder {
+    border: 2px solid #116117;
+    border-radius: 8px;
+}
+
+.validStyle, .valid {
+    border: 2px solid #00ce11;
+    border-radius: 8px;
+}
+
+.wrongStyle, .wrong {
+    border: 2px solid #ce0000;
+    border-radius: 8px;
+}
+/* --- ESTILOS DEL ÁRBOL AST HORIZONTAL (HORIZONTAL A) --- */
+.ast-rule {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 3px 5px;
+    margin: 2px;
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
+}
+
+.ast-rule:hover {
+    border-color: #8bc34a;
+    background-color: rgba(139, 195, 74, 0.08);
+}
+
+.ast-rule:nth-child(even) {
+    background-color: rgba(0, 123, 255, 0.08);
+    border-color: rgba(0, 123, 255, 0.25);
+}
+
+.ast-rule:nth-child(even):hover {
+    border-color: #64b5f6;
+    background-color: rgba(100, 181, 246, 0.15);
+}
+
+.ast-rule:nth-child(odd) {
+    background-color: rgba(40, 167, 69, 0.08);
+    border-color: rgba(40, 167, 69, 0.25);
+}
+
+.ast-rule:nth-child(odd):hover {
+    border-color: #81c784;
+    background-color: rgba(129, 199, 132, 0.15);
+}
+
+.ast-children {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+}
+
+.ast-token {
+    position: relative;
+    background-color: #ffffff;
+    color: #0d1117;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: default;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    white-space: pre;
+}
+
+.ast-token:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 8px rgba(0, 230, 118, 0.8);
+    outline: 2px solid #00e676;
+    z-index: 100;
+}
+
+/* Tooltip flotante que muestra la regla al pasar el mouse por el token */
+.ast-token::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%) translateY(2px);
+    background: #1a221b;
+    color: #00e676;
+    border: 1px solid #00e676;
+    font-size: 11px;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.ast-token:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
